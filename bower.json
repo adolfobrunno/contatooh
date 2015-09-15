@@ -22,7 +22,11 @@
   ],
   "dependencies": {
     "angular": "~1.4.5",
-    "angular-route": "~1.4.5",
+    "angular-resource": "1.3",
+    "angular-route": "1.3",
     "bootstrap": "~3.3.5"
+  },
+  "resolutions": {
+    "angular-route": "1.3"
   }
 }
