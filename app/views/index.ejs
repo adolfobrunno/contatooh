@@ -2,21 +2,22 @@
 <head>
 	<meta name="vierport" content="width=device-width">
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+	<!-- build:css css/index.min.css -->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+	<!-- endbuild -->
 </head>
 <body class="container">
 	
 
 	<% if(usuarioLogado.length > 0) { %>
-		
-	
-	<div class="text-right">
-		<p>Logado como: <span id="usuario-logado"><%=usuarioLogado %></span>. <a href="/logout">Sair</a></p>
-	</div>
-	
+		<div class="text-right">
+			<p>Logado como: <span id="usuario-logado"><%=usuarioLogado %></span>. <a href="/logout">Sair</a></p>
+		</div>
 	<% } %>
 	<div ng-view></div>
 
+	<!-- build:js js/index.min.js -->
 	<script src="vendor/angular/angular.js"></script>
 	<script src="vendor/angular-route/angular-route.js"></script>
 	<script src="vendor/angular-resource/angular-resource.js"></script>
@@ -28,6 +29,6 @@
 	<script src="js/services/InterceptorService.js"></script>
 	<script src="js/controllers/ContatosController.js"></script>
 	<script src="js/controllers/ContatoController.js"></script>
-	
+	<!-- endbuild -->
 </body>
 </html>

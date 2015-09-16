@@ -13,6 +13,12 @@ module.exports = function(){
 			type: String,
 			required: true
 		},
+		githubProfile: {
+			type: String
+		},
+		facebookProfile: {
+			type: String
+		},
 		inclusao: {
 			type: Date,
 			default: Date.now

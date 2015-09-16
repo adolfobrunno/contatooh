@@ -4,7 +4,7 @@ module.exports = function(app){
 		var login = '';
 		if(req.user){
 			console.log(req.user);
-			login = req.user.login;
+			login = req.user.nome;
 		}
 		res.render('index', {'usuarioLogado': login});
 	})
