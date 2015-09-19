@@ -20,7 +20,7 @@
 		<div class="form-group">
 			<label for="telefone" class="col-lg-2 control-label">Telefone 1</label>
 			<div class="col-lg-10">
-				<input type="text" class="form-control" name="telefone" ui-br-phone-number id="telefone" required ng-model="contato.telefones[0].numero">
+				<input type="text" class="form-control" name="telefone" id="telefone" required ng-model="contato.telefones[0].numero">
 				<select name="tiposTelefone" class="form-control" id="tipoTelefone1" ng-model='contato.telefones[0].tipo' ng-options="tiposTelefone as tipo for tipo in tiposTelefone"></select>
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 		<div class="form-group">
 			<label for="telefone" class="col-lg-2 control-label">Telefone 2</label>
 			<div class="col-lg-10">
-				<input type="text" class="form-control" name="telefone" ui-br-phone-number id="telefone" required ng-model="contato.telefones[1].numero">
+				<input type="text" class="form-control" name="telefone" id="telefone" required ng-model="contato.telefones[1].numero">
 				<select name="tiposTelefone" class="form-control" id="tipoTelefone2" ng-model='contato.telefones[1].tipo' ng-options="tiposTelefone as tipo for tipo in tiposTelefone"></select>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-angular.module('contatooh',['ngRoute', 'ngResource', 'ui.utils.masks'])
+angular.module('contatooh',['ngRoute', 'ngResource'])
 .config(function($routeProvider, $httpProvider) {
 
 	$httpProvider.interceptors.push('meuInterceptor');

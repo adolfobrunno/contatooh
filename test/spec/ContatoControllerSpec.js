@@ -10,7 +10,7 @@ describe("ContatoController", function() {
 			$httpBackend.when('GET', '/contatos/1')
 				.respond({_id: '1'});
 			$httpBackend.when('GET', '/contatos')
-				.respond([{}]);
+				.respond([{}]); 
 		});
 	});
 
