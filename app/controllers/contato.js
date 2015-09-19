@@ -1,16 +1,17 @@
 var contatos = []
 
 var sanitize = require('mongo-sanitize');
+var Usuario = require('./usuario')
 
 module.exports = function(app){
 
-	var controller = {};
+	var Controller = {};
 	var Contato = app.models.contato;
 
 
-	controller.listaContatos = function(req, res){
+	Controller.listaContatos = function(req, res){
 
-		Contato.find().populate('emergencia').exec()
+		Contato.find({'usuario': req.user}).populate('emergencia').exec()
 			.then(function(contatos){
 				res.json(contatos);
 			},
@@ -20,9 +21,9 @@ module.exports = function(app){
 			})
 	};
 
-	controller.obtemContato = function(req, res){
+	Controller.obtemContato = function(req, res){
 
-		var _id = sanitize(req.body._id);
+		var _id = sanitize(req.params.id);
 		Contato.findById(_id).exec()
 			.then(function(contato){
 				if(!contato){ throw new Error('Contato não encontrado.') }
@@ -34,7 +35,7 @@ module.exports = function(app){
 
 	};
 
-	controller.removeContato = function(req, res){
+	Controller.removeContato = function(req, res){
 
 		var _id = sanitize(req.params.id);
 		Contato.remove({"_id": _id}).exec()
@@ -46,15 +47,19 @@ module.exports = function(app){
 
 	};
 
-	controller.salvaContato = function(req, res){
+	Controller.salvaContato = function(req, res){
 
 		var _id = sanitize(req.body._id);
 
-		var dados = {
-			"nome": req.body.nome,
-			"email": req.body.email,
-			"emergencia": req.body.emergencia || null
-		};
+		var dados = new Contato();
+		dados.nome = req.body.nome;
+		dados.email = req.body.email;
+		dados.emergencia = req.body.emergencia || null;
+		dados.telefones = req.body.telefones;
+		dados.usuario = req.user;
+		console.log('----------------------')
+		console.log('Dados: ' + dados);
+		console.log('----------------------')
 
 		if(_id){
 			Contato.findByIdAndUpdate(_id, dados).exec()
@@ -76,5 +81,5 @@ module.exports = function(app){
 
 	};
 
-	return controller;
+	return Controller;
 }

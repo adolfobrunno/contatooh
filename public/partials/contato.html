@@ -1,28 +1,50 @@
-<h1>Contato</h1>
-
-<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
-
-<form ng-submit="salva()">
-	<div class="form-group">
-		<label for="nome">Nome Completo</label>
-		<input type="text" class="form-control" name="nome" id="nome" required ng-model="contato.nome">
-	</div>
-
-	<div class="form-group">
-		<label for="email">Email</label>
-		<div class="input-group">
-			<span class="input-group-addon">@</span>
-			<input type="email" class="form-control" id="email" name="email" placeholder="email@exemplo.com" required ng-model="contato.email">
+<form ng-submit="salva()" class="form-horizontal">
+	<fieldset>
+		<legend><h2>Contato</h2>
+			<h6 ng-show="mensagem.texto">{{mensagem.texto}}</h6>
+		</legend>
+		<div class="form-group">
+			<label for="nome" class="col-lg-2 control-label">Nome Completo</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control" name="nome" id="nome" required ng-model="contato.nome">
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label for="emergencia">Emergência</label>
-		<select name="emergencia" class="form-control" id="emergencia" ng-model="contato.emergencia" 
-				ng-options="contato._id as contato.nome for contato in contatos">
-		</select>
-	</div>
+		<div class="form-group">
+			<label for="email" class="col-lg-2 control-label">Email</label>
+			<div class="col-lg-10">
+				<input type="email" class="form-control" id="email" name="email" placeholder="email@exemplo.com" required ng-model="contato.email">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="telefone" class="col-lg-2 control-label">Telefone 1</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control" name="telefone" ui-br-phone-number id="telefone" required ng-model="contato.telefones[0].numero">
+				<select name="tiposTelefone" class="form-control" id="tipoTelefone1" ng-model='contato.telefones[0].tipo' ng-options="tiposTelefone as tipo for tipo in tiposTelefone"></select>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="telefone" class="col-lg-2 control-label">Telefone 2</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control" name="telefone" ui-br-phone-number id="telefone" required ng-model="contato.telefones[1].numero">
+				<select name="tiposTelefone" class="form-control" id="tipoTelefone2" ng-model='contato.telefones[1].tipo' ng-options="tiposTelefone as tipo for tipo in tiposTelefone"></select>
+			</div>
+		</div>
+		
 
-	<button class="btn btn-primary" type="submit">Salvar</button>
-	<a href="#/" class="btn btn-default">Voltar</a>
+		<div class="form-group">
+			<label for="emergencia" class="col-lg-2 control-label">Emergência</label>
+			<div class="col-lg-10">
+				<select name="emergencia" class="form-control" id="emergencia" ng-model="contato.emergencia" 
+						ng-options="contato._id as contato.nome for contato in contatos">
+				</select>
+			</div>
+		</div>
+		<div class="col-lg-10 col-lg-offset-2">
+			<button class="btn btn-primary" type="submit">Salvar</button>
+			<a href="#/" class="btn btn-default">Voltar</a>
+		</div>
+	</fieldset>
 </form>

@@ -4,19 +4,15 @@ var findOrCreate = require('mongoose-findorcreate');
 module.exports = function(){
 
 	var schema = mongoose.Schema({
-		login: {
-			type: String,
-			required: true,
-			index: {unique: true}
-		},
 		nome: {
 			type: String,
 			required: true
 		},
-		githubProfile: {
-			type: String
+		email: {
+			type: String,
+			index: {unique: true}
 		},
-		facebookProfile: {
+		facebookId: {
 			type: String
 		},
 		inclusao: {

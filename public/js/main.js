@@ -1,4 +1,4 @@
-angular.module('contatooh',['ngRoute', 'ngResource'])
+angular.module('contatooh',['ngRoute', 'ngResource', 'ui.utils.masks'])
 .config(function($routeProvider, $httpProvider) {
 
 	$httpProvider.interceptors.push('meuInterceptor');
@@ -16,6 +16,11 @@ angular.module('contatooh',['ngRoute', 'ngResource'])
 	$routeProvider.when('/contato/:idContato', {
 		templateUrl: 'partials/contato.html', 
 		controller: 'ContatoController'
+	});
+
+	$routeProvider.when('/usuario', {
+		templateUrl: 'partials/usuario.html',
+		controller: 'UsuarioController'
 	});
 
 	$routeProvider.when('/auth', {

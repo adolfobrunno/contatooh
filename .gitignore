@@ -28,6 +28,8 @@ build/Release
 node_modules
 
 dist
-.tmp/
-
-*.DS_Store
+.tmp
+scripts/
+.DS_Store
+.DS_Store?
+public/vendor/

@@ -26,7 +26,9 @@ module.exports = function() {
   	saveUninitialized: true
   }))
   app.use(passport.initialize());
-  app.use(passport.session());
+  app.use(passport.session({
+    cookie: {maxAge: 3600000 }
+  }));
 
   // Configurando middleware de segurança
   app.disable('x-powered-by');

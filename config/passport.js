@@ -13,12 +13,13 @@ module.exports = function(){
 	    callbackURL: "http://localhost:3000/auth/facebook/callback",
 	    enableProof: false
 	}, function(accessToken, refreshToken, profile, done){
+		console.log('------------------------');
+		console.log(profile);
+		console.log('------------------------');
 
 		Usuario.findOrCreate(
-			{"login": profile.id},
-			{"nome": profile.displayName},
-			{"facebookProfile": profile.id},
-
+			{"email": profile.emails[0].value || null},
+			{"facebookId": profile.id, "nome": profile.displayName},
 			function(err, usuario){
 				if(err){
 					console.log(err);
@@ -34,9 +35,12 @@ module.exports = function(){
 		clientSecret: '94c6fe6b1493e1230b68fa4f7f0ecab64af12801',
 		callbackURL: 'http://localhost:3000/auth/github/callback'
 	}, function(accessToken, refreshToken, profile, done){
+		console.log('------------------------');
+		console.log(profile);
+		console.log('------------------------');
 
 		Usuario.findOrCreate(
-			{"login": profile.username},
+			{"email": profile.emails[0].value || null},
 			{"nome": profile.username},
 			function(err, usuario){
 				if(err){

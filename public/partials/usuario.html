@@ -1,0 +1,16 @@
+<h1>Alterar Dados</h1>
+
+<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
+
+<form ng-submit="alterar()">
+
+	<div class="form-group">
+		<label for="nome">Nome</label>
+		<input type="text" id="nome" class="form-control" ng-model="usuario.nome">
+		<label for="email">Email</label>
+		<input type="text" id="email" class="form-control" ng-model="usuario.email">
+	</div>
+
+	<button class="btn btn-primary" type="submit">Salvar</button>
+	<a href="#/" class="btn btn-default">Voltar</a>
+</form>
