@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Usuario = require('./usuario');
 
+// retorna uma 'classe' Contato
+
 module.exports = function(){
 
 	var Telefone = mongoose.Schema({
