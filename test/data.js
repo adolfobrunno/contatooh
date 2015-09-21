@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 
-var usuario = {_id: ObjectId('1'), nome: 'Adolfo', email: 'adolfo.brunno.ba@gmail.com'}
+var usuario = {_id: '1', nome: 'Adolfo', email: 'adolfo.brunno.ba@gmail.com'}
 
 var contatos = [
 {nome: 'xyz', email: 'xyz@test.com', usuario: usuario},
